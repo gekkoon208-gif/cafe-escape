@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en-US" class="transparentSkybridgeBackground desktopSkybridge light" data-theme="light" style="color-scheme: light; --safe-area-inset-top: 0px; --safe-area-inset-bottom: 0px; --safe-area-inset-left: 0px; --safe-area-inset-right: 0px;"><head><style>@layer sandbox-defaults{html,body,#root{margin:0;padding:0}}</style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Last Sip — Café Escape</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+:root{--cream:#f6eddd;--muted:#baad98;--green:#c0cf8c;--line:#ffffff25}*{box-sizing:border-box}body{margin:0;background:#242721;color:var(--cream);font-family:'DM Sans',sans-serif;overflow:hidden}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid var(--green);outline-offset:5px}button{color:inherit}#scene{position:fixed;inset:0;width:100%;height:100%;outline:none}.shade{pointer-events:none;position:fixed;inset:0;background:linear-gradient(90deg,#1d241ce8 0%,#1d241c8a 27%,transparent 55%),linear-gradient(0deg,#172019c9,transparent 23%)}header{position:fixed;top:0;left:0;right:0;padding:30px 42px;display:flex;align-items:center;justify-content:space-between;pointer-events:none}.brand{font-size:12px;letter-spacing:3px;font-weight:700;display:flex;align-items:center;gap:13px}.brand i{font-style:normal;font-size:25px;color:var(--green)}.topright{display:flex;gap:12px;align-items:center;pointer-events:auto}.pill{border:1px solid var(--line);border-radius:30px;padding:11px 17px;font-size:11px;letter-spacing:1px;background:#20271c66;backdrop-filter:blur(10px)}button.pill:hover{background:#ffffff18}.live{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block;margin-right:8px}.intro{position:fixed;top:22%;left:42px;width:300px;pointer-events:none}.eyebrow{font-size:10px;letter-spacing:3px;color:var(--green);text-transform:uppercase}.intro h1{font-family:'Playfair Display',Georgia,serif;font-size:76px;line-height:1.03;font-weight:400;margin:24px 0}.intro h1 em{color:#d1c197;font-weight:400}.rule{width:37px;height:1px;background:#b2aa88;margin:26px 0}.intro p{font-size:13px;line-height:1.9;color:#c6c9b9;max-width:240px}.chapter{margin-top:32px;display:flex;gap:12px;align-items:center;font-size:10px;letter-spacing:2px}.chapter span{display:inline-block;width:27px;height:27px;border:1px solid #7e8b70;border-radius:50%;text-align:center;line-height:25px}.bottom{position:fixed;bottom:30px;left:42px;right:42px;display:flex;align-items:end;justify-content:space-between;pointer-events:none}.help{font-size:11px;color:#d0d4bf;line-height:2}.help b{font-size:14px;margin-right:8px;font-weight:400}.inventory{pointer-events:auto;display:flex;gap:22px;align-items:center;padding:19px 24px;background:#1b251baf;border:1px solid #b6c39c35;border-radius:10px;backdrop-filter:blur(20px)}.inv-label{font-size:9px;letter-spacing:2px;color:#c8cdb7;line-height:1.9}.inv-label strong{display:block;font-size:13px;letter-spacing:0;color:var(--cream);font-weight:500}.digits{display:flex;gap:7px}.digit{width:35px;height:43px;border:1px solid #d2d8b52a;border-radius:5px;display:flex;align-items:center;justify-content:center;color:#90977f;font-family:Georgia,serif;font-size:21px;position:relative}.digit small{position:absolute;top:3px;left:5px;font:8px sans-serif;color:#b7c09d}.digit.found{color:var(--green);border-color:#acbf7766;background:#abbc7215}.progress{position:fixed;right:42px;top:118px;font-size:10px;letter-spacing:2px;color:#dee3cd}.progress b{font-size:22px;font-family:Georgia,serif;font-weight:400;color:var(--green);letter-spacing:0;margin-right:7px}.tag{position:absolute;pointer-events:auto;border:1px solid #e7e6cb99;background:#222d20d9;color:#edf0d9;border-radius:25px;padding:7px 11px;transform:translate(-50%,-50%);box-shadow:0 3px 15px #0003;display:flex;align-items:center;gap:7px;white-space:nowrap;font-size:10px;transition:background .2s}.tag:hover{background:#aebc74;color:#202819}.tag span{width:17px;height:17px;display:grid;place-items:center;border:1px solid #ffffff65;border-radius:50%;font-size:9px}.tag.done{color:#c0d78c;border-color:#bfd78366}.tag.hidden{display:none}#labels{position:fixed;inset:0;pointer-events:none}.viewtools{position:fixed;right:42px;bottom:141px;display:flex;gap:8px}.viewtools button{width:36px;height:36px;border:1px solid var(--line);background:#20271c99;backdrop-filter:blur(10px);border-radius:50%;font-size:18px}.overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:#15201678;backdrop-filter:blur(7px);z-index:10;padding:22px}.overlay.open{display:flex}.card{position:relative;width:min(850px,100%);display:grid;grid-template-columns:40% 60%;border:1px solid #fff4;border-radius:16px;overflow:hidden;background:linear-gradient(130deg,#eef0dcdd,#e8e9dcbe);color:#293428;box-shadow:0 30px 120px #0006;backdrop-filter:blur(30px)}.close{position:absolute;right:17px;top:14px;border:0;background:#26342512;border-radius:50%;width:31px;height:31px;font-size:22px;color:#33432c;z-index:2}.art{background:radial-gradient(ellipse at center,#c8cbaa,#99a88d);position:relative;min-height:420px;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:25px}.art svg{width:100%;max-width:250px;filter:drop-shadow(0 20px 12px #23312030)}.art-label{font-size:9px;letter-spacing:3px;position:absolute;bottom:29px}.cardbody{padding:48px 42px 35px}.cardbody .eyebrow{color:#68774a;font-size:9px;letter-spacing:2px}.card h2{font:32px 'Playfair Display',Georgia,serif;margin:14px 0 20px}.question{font-size:14px;line-height:1.8;min-height:74px;margin-bottom:24px}.answer-row{display:flex;gap:8px}input{min-width:0;width:100%;border:1px solid #69775a4d;background:#fff6;padding:13px 12px;border-radius:5px;color:#263525;font-size:13px}button.primary{border:0;background:#34472f;color:#f2efdd;padding:12px 19px;border-radius:5px;white-space:nowrap;font-size:12px}button.primary:hover{background:#4f603c}.feedback{font-size:12px;line-height:1.7;min-height:42px;margin:15px 0;color:#5b6942}.smallnote{font-size:10px;color:#76816b;line-height:1.7}.hintarea{border-top:1px solid #48563925;padding-top:12px;font-size:11px;line-height:1.7}.hintarea:empty{display:none}.lockcard,.endcard,.helpcard{width:min(490px,100%);display:block;padding:42px;text-align:center}.lockcard h2,.endcard h2,.helpcard h2{font:34px Georgia,serif}.lock-input{font-size:28px;letter-spacing:12px;text-align:center;margin:15px 0;max-width:330px}.lockcard .primary{width:100%}.endcard{background:linear-gradient(140deg,#e8ecd5,#c8d3b9)}.endicon{font-size:54px}.endcard p,.helpcard p{font-size:13px;line-height:1.9;color:#5c6953}#toast{position:fixed;top:90px;left:50%;transform:translateX(-50%) translateY(-20px);background:#e0e6cfee;color:#314529;padding:12px 23px;border-radius:8px;font-size:12px;opacity:0;transition:.3s;pointer-events:none;z-index:20}#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}#loading{position:fixed;inset:0;background:#242d21;z-index:30;display:grid;place-content:center;text-align:center;transition:opacity .6s}#loading h2{font:40px Georgia,serif;font-weight:400}#loading p{font-size:12px;color:#c2cba9}#loading button{margin-top:15px}.mobile-note{display:none}.helpcard{text-align:left}.helpcard .primary{margin-top:12px}.footer-brand{position:fixed;bottom:8px;right:43px;font-size:8px;letter-spacing:2px;color:#d4d6c166}
+@media(max-width:800px){header{padding:20px}.brand{font-size:9px;letter-spacing:2px}.topright .pill:first-child{display:none}.intro{left:20px;top:110px;width:180px}.intro h1{font-size:48px;margin:15px 0}.intro p{font-size:11px;max-width:155px}.intro .rule{margin:17px 0}.chapter{display:none}.progress{top:88px;right:20px;font-size:8px}.bottom{left:20px;right:20px;bottom:22px;gap:12px}.inventory{padding:13px;gap:10px}.inv-label{font-size:7px}.inv-label strong{font-size:10px}.digit{width:27px;height:36px}.digits{gap:4px}.help{display:none}.viewtools{right:20px;bottom:104px}.cardbody{padding:36px 23px 23px}.art{min-height:200px}.card{grid-template-columns:1fr;max-width:440px;max-height:94dvh;overflow:auto}.art{height:165px;min-height:165px}.art svg{max-width:135px;height:135px}.art-label{bottom:12px;font-size:7px}.card h2{font-size:26px;margin:10px 0}.question{min-height:0;margin-bottom:17px;font-size:13px}.feedback{min-height:22px;margin:10px 0}.tag{font-size:9px;padding:5px 7px}.shade{background:linear-gradient(90deg,#1d241cc9,transparent 85%),linear-gradient(0deg,#172019b9,transparent 22%)}.footer-brand{right:20px}.lockcard,.helpcard,.endcard{padding:35px 25px}.lock-input{letter-spacing:8px}.eyebrow{font-size:8px}.intro p:last-of-type{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.teacher-card{display:block;width:min(960px,100%);max-height:92dvh;overflow:auto;padding:32px;background:#eef0e2f5}.teacher-card h2{margin:10px 0}.teacher-intro{font-size:12px;line-height:1.8;color:#59684e;max-width:780px}.teacher-tabs{display:flex;gap:7px;flex-wrap:wrap;margin:20px 0}.teacher-tabs button{border:1px solid #a8b49a;border-radius:6px;padding:9px 12px;background:#fff5;color:#415238;font-size:12px}.teacher-tabs button[aria-selected="true"]{background:#34472f;color:#f2efdd}.teacher-fields{display:grid;grid-template-columns:1fr 1fr;gap:15px 20px}.teacher-fields label{display:block;font-size:12px;color:#46553b;line-height:1.8}.teacher-fields .wide{grid-column:1/-1}.teacher-fields input,.teacher-fields textarea{margin-top:5px;display:block;width:100%;font:13px 'DM Sans',sans-serif;border:1px solid #a9b299;border-radius:5px;padding:10px;color:#293428;background:#fff9}.teacher-fields textarea{resize:vertical;min-height:74px}.teacher-fields small{display:block;color:#77836a;font-size:10px;margin-top:4px}.teacher-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.teacher-actions .secondary{border:1px solid #8a9b79;background:transparent;border-radius:5px;padding:12px 18px;color:#34472f;font-size:12px}.teacher-status{font-size:12px;line-height:1.8;margin-top:12px;min-height:22px;color:#59684e;white-space:pre-line}.teacher-code{font-size:12px;color:#63734f;margin:14px 0 0}.teacher-code strong{letter-spacing:4px;color:#34472f}.teacher-fields .hint-fields{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.question{white-space:pre-wrap}
+@media(max-width:800px){.teacher-card{max-width:100%;padding:28px 20px}.teacher-fields{grid-template-columns:1fr}.teacher-fields .hint-fields{grid-template-columns:1fr}.teacher-tabs{gap:5px}.teacher-tabs button{padding:8px}.teacher-actions button{flex:1}.brand{gap:7px;font-size:8px}.topright{gap:5px}.topright button.pill{padding:9px 10px}}
+</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
+<style>html, body, #root {
+      margin-top: 0; margin-bottom: 0; padding-top: 0; padding-bottom: 0;
+      
+    }
+html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}html,body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif!important}button,input,textarea,select{font-family:inherit}html{background-color:transparent}html.chatgptOled.dark,html.mobileSkybridge.dark{background-color:#000}@supports (font: -apple-system-body){html.mobileSkybridge{font:-apple-system-body}}html.desktopSkybridge.dark{background-color:#1e1e1e}html.transparentSkybridgeBackground,html.transparentSkybridgeBackground.dark{background-color:transparent}html.androidSkybridge,html.androidSkybridge body,html.androidSkybridge *{-webkit-tap-highlight-color:rgba(255,255,255,0)}html.androidSkybridge *::selection,html.androidSkybridge *::-moz-selection{background:#fff0;color:inherit}</style></head>
+<body data-new-gr-c-s-check-loaded="14.1338.0" data-gr-ext-installed="">
+<canvas id="scene" aria-label="可旋转的低多边形咖啡馆"></canvas><div class="shade"></div>
+<header><div class="brand"><i>◒</i> THE LAST SIP <span style="opacity:.4;font-weight:400">/</span> ESCAPE ROOM</div><div class="topright"><span class="pill"><span class="live"></span> A LITTLE MYSTERY, FRESHLY BREWED</span><button class="pill" id="teacherButton">教师编辑</button><button class="pill" id="help">玩法 ?</button></div></header>
+<section class="intro"><div class="eyebrow">A LOW-POLY ESCAPE EXPERIENCE</div><h1>One café.<br>Six secrets.<br><em>One way out.</em></h1><div class="rule"></div><p>打烊后的咖啡馆，留下了一杯未喝完的咖啡，以及六个等待被发现的秘密。</p><p>探索物品，解开谜题。<br>最后一口之后，找到你的出口。</p><div class="chapter"><span>01</span> THE AFTER-HOURS MYSTERY</div></section>
+<div class="progress"><b id="count">0 / 6</b> SECRETS FOUND</div><div id="labels"></div>
+<div class="viewtools"><button id="zoomIn" aria-label="放大">+</button><button id="zoomOut" aria-label="缩小">−</button><button id="resetView" aria-label="重置视角">↺</button></div>
+<div class="bottom"><div class="help"><div><b>↔</b> 拖动旋转视角 · 滚轮缩放</div><div><b>◎</b> 点击编号物品，寻找线索</div></div><div class="inventory"><div class="inv-label">YOUR EXIT CODE<strong>收集密码</strong></div><div class="digits" id="digits"></div><button class="pill" id="openLock" style="padding:10px;font-size:14px" aria-label="打开门锁">⌑</button></div></div><div class="footer-brand">TAKE YOUR TIME. FOLLOW YOUR CURIOSITY.</div>
+<div id="toast" role="status"></div>
+<div id="puzzle" class="overlay" role="dialog" aria-modal="true" aria-labelledby="puzzleTitle"><div class="card"><button class="close" data-close="" aria-label="关闭">×</button><div class="art" id="puzzleArt"></div><div class="cardbody"><div class="eyebrow" id="puzzleNo"></div><h2 id="puzzleTitle"></h2><div class="question" id="question"></div><form id="answerForm"><div class="answer-row"><input id="answer" autocomplete="off" placeholder="Your answer…" aria-label="Your answer"><button type="button" class="primary" id="answerButton">Check →</button></div></form><div class="feedback" id="feedback" aria-live="polite"></div><div class="hintarea" id="hints"></div><div class="smallnote" id="attempts"></div></div></div></div>
+<div id="lock" class="overlay" role="dialog" aria-modal="true" aria-labelledby="lockTitle"><div class="card lockcard"><button class="close" data-close="" aria-label="关闭">×</button><div class="eyebrow">THE FINAL CHAPTER</div><h2 id="lockTitle">The way out.</h2><p style="font-size:13px;line-height:1.8">按物品编号 01 → 06 排列数字，<br>输入六位密码，开启咖啡馆的门。</p><div id="lockProgress" class="smallnote"></div><form id="lockForm"><input class="lock-input" id="code" aria-label="六位密码" inputmode="numeric" maxlength="6" pattern="[0-9]{6}" autocomplete="off" placeholder="······"><button type="button" class="primary" id="unlockButton">Unlock the door →</button></form><div class="feedback" id="lockFeedback" aria-live="polite"></div></div></div>
+<div id="win" class="overlay" role="dialog" aria-modal="true" aria-labelledby="winTitle"><div class="card endcard"><div class="endicon">☀</div><div class="eyebrow">MYSTERY SOLVED · DOOR OPEN</div><h2 id="winTitle">A fresh start.</h2><p>六个秘密，一扇打开的门。<br>你走出了咖啡馆，新的故事正在街角等你。</p><p id="endStats"></p><button class="primary" id="playAgain">再来一杯 · 重新开始</button><button class="pill" id="explore" style="color:#34472f;margin-top:15px">继续欣赏咖啡馆</button></div></div>
+<div id="instructions" class="overlay" role="dialog" aria-modal="true" aria-labelledby="helpTitle"><div class="card helpcard"><button class="close" data-close="" aria-label="关闭">×</button><div class="eyebrow">MAKE YOURSELF AT HOME</div><h2 id="helpTitle">How to escape</h2><p>01 — 拖动旋转、滚轮缩放；也可使用右下角视角按钮。<br>02 — 点击场景里的六个物品或编号标签，镜头会靠近它。<br>03 — 阅读英文谜题并输入英文答案。大小写、首尾空格不影响判断。<br>04 — 每次答错会依次出现更明确的提示，第三次提示最直接；之后仍可继续尝试。<br>05 — 按物品编号排列六位数字，点击门或右下角锁按钮输入。</p><p>进度自动保存在当前浏览器。谜题和门锁也可以通过 Tab 与 Enter 操作。按 Esc 关闭卡片。</p><button class="primary" id="startExplore">开始探索 →</button><button class="pill" id="clearProgress" style="color:#59674c;margin-left:8px">重置进度</button></div></div>
+<div id="loading"><h2>The Last Sip</h2><p id="loadText">正在为你点亮咖啡馆…</p></div>
+<div id="teacher" class="overlay" role="dialog" aria-modal="true" aria-labelledby="teacherTitle"><div class="card teacher-card"><button class="close" data-close="" aria-label="关闭教师编辑">×</button><div class="eyebrow">TEACHER’S DESK</div><h2 id="teacherTitle">把课堂，变成一场探索。</h2><p class="teacher-intro">选择物品，修改对应谜题。每个答案写一行，三条提示从含蓄到明确。保存并试玩会重置本题库的游戏进度；修改只保存在当前浏览器。要分享给学生，请下载新版 HTML，再上传 GitHub 覆盖 index.html。关闭编辑器时未保存的内容会丢弃。</p><div class="teacher-tabs" role="tablist" aria-label="选择要编辑的谜题" id="teacherTabs"></div><section id="teacherFields" class="teacher-fields" role="tabpanel" aria-label="谜题编辑字段"><label>卡片标题<input id="editTitle" maxlength="120"></label><label>答对获得的数字（0–9）<input id="editDigit" inputmode="numeric" maxlength="1"><small>最终密码按物品 01 → 06 自动组合。</small></label><label class="wide">题目（支持中英文）<textarea id="editQuestion" rows="3" maxlength="3000"></textarea></label><label class="wide">可接受的答案（一行一个）<textarea id="editAnswers" rows="3" maxlength="4000"></textarea><small>可填写同义词或不同写法；不区分大小写，空行会忽略。</small></label><div class="hint-fields"><label>提示 1 · 第一次答错<textarea id="editHint0" maxlength="1000"></textarea></label><label>提示 2 · 第二次答错<textarea id="editHint1" maxlength="1000"></textarea></label><label>提示 3 · 第三次答错<textarea id="editHint2" maxlength="1000"></textarea></label></div></section><p class="teacher-code">当前草稿的门锁密码：<strong id="teacherCode"></strong></p><div class="teacher-actions"><button type="button" class="primary" id="saveLesson">保存并试玩</button><button type="button" class="secondary" id="downloadLesson">下载新版 HTML</button></div><div class="teacher-status" id="teacherStatus" role="status"></div><p class="smallnote">教师编辑是备课工具，不设身份验证；下载文件仍包含题目答案和编辑入口。</p></div></div>
+<script id="lessonData" type="application/json">[{"title":"The barista’s cup","label":"Coffee cup","digit":"7","kind":"cup","q":"I am a scientist with wild hair. My famous equation connects energy, mass, and the speed of light. What is my last name?\nanswer: coffee","answers":["coffee"],"hints":["He was born in Germany in 1879.","His famous equation is E = mc².","His first name is Albert. His last name begins with “Ein”."]},{"title":"A story left open","label":"Storybook","digit":"3","kind":"book","q":"I followed a white rabbit, fell down a rabbit hole, and had a very strange tea party. What is my first name?\nanswer: alice","answers":["alice"],"hints":["I am the heroine of a book by Lewis Carroll.","My adventure takes place in Wonderland.","My name has five letters: A L I C E."]},{"title":"Time for a clue","label":"Wall clock","digit":"1","kind":"clock","q":"I have a face and two hands, but no arms or legs. I can tell you something all day without speaking. What am I?\nanswer: clock","answers":["clock","a clock","watch","a watch"],"hints":["You might find me hanging on a wall.","My hands point to hours and minutes.","I am a clock."]},{"title":"A little green secret","label":"Houseplant","digit":"8","kind":"plant","q":"Plants use sunlight to turn water and carbon dioxide into food. What is this process called?\nanswer: photosynthesis","answers":["photosynthesis"],"hints":["This process also releases oxygen.","The word starts with “photo”, meaning light.","Complete the word: photo + synthesis."]},{"title":"A note in the air","label":"Vinyl record","digit":"4","kind":"record","q":"I composed “Für Elise” and continued writing music even after losing my hearing. What is my last name?\nanswer: beethoven","answers":["beethoven","ludwig van beethoven","van beethoven","ludwig beethoven"],"hints":["I was a German composer born in 1770.","My Ninth Symphony includes “Ode to Joy”.","My name is Ludwig van Beethoven."]},{"title":"The sweetest discovery","label":"Honey jar","digit":"2","kind":"honey","q":"We live in colonies, visit flowers, and make the golden honey in this jar. What insects are we?\nanswer: bee","answers":["bees","bee","honey bees","honeybees","honey bee","a bee"],"hints":["We carry pollen from flower to flower.","We live in hives and have a queen.","We are bees. Bzzzz!"]}]</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const sourceDocument=document.documentElement.cloneNode(true);
+const defaultPuzzles=[
+{title:'The barista’s cup',label:'Coffee cup',digit:'7',kind:'cup',q:'I am a scientist with wild hair. My famous equation connects energy, mass, and the speed of light. What is my last name?',answers:['einstein','albert einstein'],hints:['He was born in Germany in 1879.','His famous equation is E = mc².','His first name is Albert. His last name begins with “Ein”.']},
+{title:'A story left open',label:'Storybook',digit:'3',kind:'book',q:'I followed a white rabbit, fell down a rabbit hole, and had a very strange tea party. What is my first name?',answers:['alice'],hints:['I am the heroine of a book by Lewis Carroll.','My adventure takes place in Wonderland.','My name has five letters: A L I C E.']},
+{title:'Time for a clue',label:'Wall clock',digit:'1',kind:'clock',q:'I have a face and two hands, but no arms or legs. I can tell you something all day without speaking. What am I?',answers:['clock','a clock','watch','a watch'],hints:['You might find me hanging on a wall.','My hands point to hours and minutes.','I am a clock.']},
+{title:'A little green secret',label:'Houseplant',digit:'8',kind:'plant',q:'Plants use sunlight to turn water and carbon dioxide into food. What is this process called?',answers:['photosynthesis'],hints:['This process also releases oxygen.','The word starts with “photo”, meaning light.','Complete the word: photo + synthesis.']},
+{title:'A note in the air',label:'Vinyl record',digit:'4',kind:'record',q:'I composed “Für Elise” and continued writing music even after losing my hearing. What is my last name?',answers:['beethoven','ludwig van beethoven','van beethoven','ludwig beethoven'],hints:['I was a German composer born in 1770.','My Ninth Symphony includes “Ode to Joy”.','My name is Ludwig van Beethoven.']},
+{title:'The sweetest discovery',label:'Honey jar',digit:'2',kind:'honey',q:'We live in colonies, visit flowers, and make the golden honey in this jar. What insects are we?',answers:['bees','bee','honey bees','honeybees','honey bee','a bee'],hints:['We carry pollen from flower to flower.','We live in hives and have a queen.','We are bees. Bzzzz!']}
+];
+function validLesson(data){return Array.isArray(data)&&data.length===6&&data.every((p,i)=>p&&typeof p.title==='string'&&p.title.trim()&&p.title.length<=120&&typeof p.q==='string'&&p.q.trim()&&p.q.length<=3000&&Array.isArray(p.answers)&&p.answers.length>0&&p.answers.length<=100&&p.answers.every(a=>typeof a==='string'&&a.trim()&&a.length<=500)&&Array.isArray(p.hints)&&p.hints.length===3&&p.hints.every(h=>typeof h==='string'&&h.trim()&&h.length<=1000)&&typeof p.digit==='string'&&/^[0-9]$/.test(p.digit))}
+function copyLesson(data){return data.map((p,i)=>({...defaultPuzzles[i],title:p.title,q:p.q,answers:[...p.answers],hints:[...p.hints],digit:p.digit}))}
+function lessonHash(data){let h=2166136261;for(const c of JSON.stringify(data)){h=Math.imul(h^c.charCodeAt(0),16777619)}return(h>>>0).toString(16)}
+let embeddedLesson=null;try{embeddedLesson=JSON.parse($('#lessonData').textContent)}catch{}
+const baseLesson=validLesson(embeddedLesson)?copyLesson(embeddedLesson):copyLesson(defaultPuzzles);
+const lessonStorageKey='last-sip-lesson-'+lessonHash(baseLesson);
+let localLesson=null;try{localLesson=JSON.parse(localStorage.getItem(lessonStorageKey)||'null')}catch{}
+const puzzles=validLesson(localLesson)?copyLesson(localLesson):copyLesson(baseLesson);
+let storageKey='last-sip-progress-'+lessonHash(puzzles);
+let saved={};try{saved=JSON.parse(localStorage.getItem(storageKey)||'{}')||{}}catch{}
+const state={solved:Array.from({length:6},(_,i)=>saved.solved?.[i]===true),tries:Array.from({length:6},(_,i)=>Number.isInteger(saved.tries?.[i])?Math.max(0,saved.tries[i]):0),escaped:saved.escaped===true&&saved.solved?.length===6&&saved.solved.every(v=>v===true),started:Number(saved.started)||Date.now()};
+function save(){try{localStorage.setItem(storageKey,JSON.stringify(state))}catch{}}
+const artBase=(inner)=>`<svg viewBox="0 0 260 240" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="130" cy="210" rx="87" ry="13" fill="#425639" opacity=".13"/>${inner}</svg>`;
+const arts={cup:artBase('<path d="M67 105h126l-14 79H83z" fill="#f2ead5"/><path d="M181 119h21c27 0 25 42-17 40" stroke="#eee4cb" stroke-width="12"/><ellipse cx="130" cy="105" rx="63" ry="18" fill="#e7dcc1"/><ellipse cx="130" cy="106" rx="53" ry="12" fill="#634a32"/><ellipse cx="130" cy="189" rx="83" ry="10" fill="#f7efd9"/><path d="M115 75c-20-21 19-23 3-43M142 77c-16-22 20-25 4-46" stroke="#f4f4df" stroke-width="3" stroke-linecap="round" opacity=".7"/>'),book:artBase('<path d="M45 70l82 20 86-20v117l-85 20-83-20z" fill="#5a7250"/><path d="M51 57l77 19 77-19v119l-77 20-77-20z" fill="#f3ead1"/><path d="M128 76v119" stroke="#ab9f7a" stroke-width="2"/><path d="M65 87l47 12m-47 5 47 12m-47 5 47 12m-47 5 36 9m43-48 46-12m-46 29 46-12m-46 29 46-12m-46 29 30-8" stroke="#b6ad8e" stroke-width="3"/><path d="M169 67v71l-10-8-10 13V72" fill="#bd744d"/>'),clock:artBase('<circle cx="130" cy="120" r="85" fill="#6e573d"/><circle cx="130" cy="120" r="75" fill="#f2e6cb"/><g stroke="#776b4d" stroke-width="3"><path d="M130 55v11m0 108v11M65 120h11m108 0h11M84 74l8 8m76 76 8 8M84 166l8-8m76-76 8-8"/></g><path d="M130 73v47l34 24" stroke="#394a35" stroke-width="5" stroke-linecap="round"/><circle cx="130" cy="120" r="6" fill="#bb8654"/>'),plant:artBase('<path d="M130 163V58m0 66-30-27m30 5 28-26" stroke="#536b3d" stroke-width="5"/><path d="M129 104C78 111 61 65 76 54c38-1 57 21 53 50" fill="#758c51"/><path d="M131 84c-9-48 27-67 43-56 9 35-10 55-43 56" fill="#536f45"/><path d="M131 138c1-45 44-55 61-40-1 31-24 42-61 40" fill="#91a65e"/><path d="M130 157c-46 2-67-26-57-45 36-8 58 17 57 45" fill="#607c48"/><path d="M83 155h94l-12 51H96z" fill="#b87750"/><path d="M83 155h94v12H83z" fill="#ce946b"/>'),record:artBase('<rect x="48" y="48" width="163" height="153" rx="6" fill="#94734e"/><rect x="57" y="57" width="145" height="130" rx="3" fill="#514b37"/><circle cx="122" cy="119" r="55" fill="#252c25"/><circle cx="122" cy="119" r="43" stroke="#566049"/><circle cx="122" cy="119" r="36" stroke="#566049"/><circle cx="122" cy="119" r="20" fill="#c1ad70"/><circle cx="122" cy="119" r="4" fill="#3f4933"/><path d="M184 75v56l-26 27" stroke="#d8d5bd" stroke-width="6"/><circle cx="184" cy="75" r="8" fill="#b6ba9d"/>'),honey:artBase('<path d="M91 72h78l13 28v89q0 15-15 15H93q-15 0-15-15v-89z" fill="#d5a146"/><path d="M89 62h82v24H89z" fill="#6e6242"/><path d="M85 119h90v53H85z" fill="#eee4bf"/><path d="M130 128l14 8v16l-14 8-14-8v-16z" fill="#bd8a3f"/><path d="M91 98v82" stroke="#f5d68c" stroke-width="5" opacity=".6"/><path d="M182 37l30 53" stroke="#b58650" stroke-width="7"/><path d="M174 33l19-11 16 27-19 11z" fill="#d6b17a"/>')};
+const canvas=$('#scene'),renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(innerWidth,innerHeight);renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.setClearColor(0x343c2c);renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.25;
+const scene=new THREE.Scene();scene.fog=new THREE.Fog(0x343c2c,29,58);
+const camera=new THREE.PerspectiveCamera(37,innerWidth/innerHeight,.1,100);const controls=new OrbitControls(camera,canvas);controls.enableDamping=true;controls.dampingFactor=.065;controls.minDistance=7;controls.maxDistance=24;controls.maxPolarAngle=Math.PI*.47;controls.minPolarAngle=.22;controls.enablePan=false;controls.rotateSpeed=.55;controls.target.set(0,1,0);
+const homePosition=new THREE.Vector3(12.8,12.4,17.8),homeTarget=new THREE.Vector3(0,1,0);
+function home(){const mobile=innerWidth<800;homePosition.set(mobile?15.5:12.8,mobile?15:12.4,mobile?21:17.8);homeTarget.set(mobile?-.9:-1.3,1.2,.2);moveCamera(homePosition,homeTarget,750)}
+scene.add(new THREE.HemisphereLight(0xfff1d5,0x5f6b43,2.5));const sun=new THREE.DirectionalLight(0xffe4b4,4);sun.position.set(-3,10,8);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-11,right:11,top:11,bottom:-11,near:.5,far:40});sun.shadow.normalBias=.04;scene.add(sun);
+const mat=(c,roughness=.88,metalness=0)=>new THREE.MeshStandardMaterial({color:c,roughness,metalness,flatShading:true});
+const M={wall:mat(0xc9c0a3),trim:mat(0x6c7753),wood:mat(0x906441),darkwood:mat(0x523e2d),lightwood:mat(0xc6a57c),green:mat(0x788154),dark:mat(0x303c30),cream:mat(0xf1e5ce),terracotta:mat(0xba7856),leaf:mat(0x5d7847),leaf2:mat(0x90a35a),gold:mat(0xc5a169,.5,.5),black:mat(0x29312d),coffee:mat(0x453021),glass:mat(0x9aaf9e,.25,.1)};
+const room=new THREE.Group();scene.add(room);room.position.x=1.3;
+function box(w,h,d,m,x,y,z,parent=room){const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y,z);o.castShadow=true;o.receiveShadow=true;parent.add(o);return o}
+function cyl(r1,r2,h,m,x,y,z,n=12,parent=room){const o=new THREE.Mesh(new THREE.CylinderGeometry(r1,r2,h,n),m);o.position.set(x,y,z);o.castShadow=true;o.receiveShadow=true;parent.add(o);return o}
+function ball(r,m,x,y,z,parent=room){const o=new THREE.Mesh(new THREE.IcosahedronGeometry(r,0),m);o.position.set(x,y,z);o.castShadow=true;parent.add(o);return o}
+function textPlane(text,w,h,bg='#354334',fg='#e8dec3',font='bold 45px Georgia'){const c=document.createElement('canvas');c.width=768;c.height=384;const ct=c.getContext('2d');ct.fillStyle=bg;ct.fillRect(0,0,768,384);ct.strokeStyle=fg;ct.globalAlpha=.45;ct.strokeRect(18,18,732,348);ct.globalAlpha=1;ct.fillStyle=fg;ct.font=font;ct.textAlign='center';ct.textBaseline='middle';text.split('\n').forEach((s,i,a)=>ct.fillText(s,384,192+(i-(a.length-1)/2)*75));const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;return new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshStandardMaterial({map:t,roughness:1}))}
+// An open dollhouse room, built from low-poly solids.
+box(12,.4,9,M.darkwood,0,-.25,0);for(let i=0;i<24;i++){const floorMat=mat([0xb48f65,0xc5a078,0xb9956c,0xc1a079][i%4]);box(.493,.09,8.92,floorMat,-5.75+i*.5,0,0);for(let j=0;j<3;j++)box(.485,.006,.013,M.wood,-5.75+i*.5,.05,-3.1+j*2.9+(i%2)*1.2)}
+box(12,4.7,.2,M.wall,0,2.35,-4.5);box(.2,4.7,9,M.wall,-6,2.35,0);box(12,.2,.3,M.lightwood,0,4.7,-4.5);box(.3,.2,9,M.lightwood,-6,4.7,0);box(12,.85,.15,M.trim,0,.48,-4.33);box(.15,.85,9,M.trim,-5.83,.48,0);for(let x=-5.7;x<6;x+=.8)box(.035,.68,.035,M.lightwood,x,.48,-4.23);for(let z=-4;z<4.6;z+=.8)box(.035,.68,.035,M.lightwood,-5.73,.48,z);
+// Large left window and softly lit panes.
+box(.16,2.85,3.8,M.darkwood,-5.84,2.8,.5);box(.18,2.55,3.52,mat(0x9fb6aa),-5.73,2.8,.5);for(let z=-1.2;z<=2.3;z+=1.16)box(.22,2.62,.07,M.cream,-5.6,2.8,z);box(.24,.07,3.6,M.cream,-5.6,2.8,.5);box(.45,.12,4,M.lightwood,-5.57,1.46,.5);
+// Counter, espresso machine, back shelving.
+box(6.8,1.25,1.35,M.green,-1.55,.7,-2.55);box(7.1,.17,1.6,M.lightwood,-1.55,1.4,-2.55);for(let x=-4.6;x<1.7;x+=.38)box(.035,1.13,.045,M.lightwood,x,.7,-1.85);box(6.9,.12,1.4,M.darkwood,-1.55,.12,-2.55);
+box(1.5,.7,.7,M.cream,-2.8,1.85,-2.7);box(1.65,.1,.8,M.black,-2.8,1.52,-2.7);box(1.45,.12,.75,M.gold,-2.8,2.24,-2.7);box(1.15,.31,.1,M.black,-2.8,1.87,-2.3);for(let x of [-3.15,-2.5]){cyl(.08,.08,.18,M.gold,x,1.67,-2.24);cyl(.13,.1,.19,M.cream,x,1.58,-2.13)}
+box(.58,.55,.56,M.darkwood,-4,1.78,-2.7);cyl(.23,.14,.42,M.glass,-4,2.25,-2.7);cyl(.25,.25,.06,M.black,-4,2.49,-2.7);
+for(let y of [2.35,3.45]){box(3.8,.1,.48,M.darkwood,-1.6,y,-4.12);for(let x of [-3.2,0])box(.09,.35,.25,M.gold,x,y-.18,-4.15)}
+for(let i=0;i<8;i++){const x=-3.1+i*.42;cyl(.12,.12,.32,i%3===0?M.terracotta:M.cream,x,2.56,-4.1);cyl(.13,.13,.04,M.darkwood,x,2.74,-4.1)}
+for(let i=0;i<5;i++){const x=-2.9+i*.61;cyl(.14,.14,.42,i%2?M.green:M.glass,x,3.71,-4.1);cyl(.15,.15,.06,M.darkwood,x,3.95,-4.1)}
+const menu=textPlane('THE LAST SIP\nCOFFEE & CURIOSITY',2.15,1.2);menu.position.set(-4.43,3.27,-4.36);room.add(menu);
+// Door is fully modeled and pivots when solved.
+box(1.8,3.4,.28,M.darkwood,4.45,1.72,-4.3);const doorPivot=new THREE.Group();doorPivot.position.set(3.65,.1,-4.1);room.add(doorPivot);box(1.58,3.18,.14,M.green,.79,1.59,0,doorPivot);box(1.2,1.35,.05,M.glass,.79,2.28,.09,doorPivot);for(let y of [1.62,2.94])box(1.29,.06,.08,M.lightwood,.79,y,.13,doorPivot);box(1.25,.74,.04,M.darkwood,.79,.65,.09,doorPivot);cyl(.07,.07,.23,M.gold,1.35,1.37,.18,8,doorPivot).rotation.x=Math.PI/2;const keypad=box(.24,.38,.1,M.black,1.33,1.71,.15,doorPivot);for(let i=0;i<9;i++)box(.035,.035,.015,M.gold,1.27+(i%3)*.06,1.8-Math.floor(i/3)*.07,.21,doorPivot);
+const exitSign=textPlane('EXIT',1,.35,'#566747','#eee8ce','bold 80px sans-serif');exitSign.position.set(4.45,3.7,-4.35);room.add(exitSign);
+// Cafe seating.
+function chair(x,z,angle=0){const g=new THREE.Group();g.position.set(x,0,z);g.rotation.y=angle;room.add(g);box(.67,.13,.65,M.terracotta,0,.78,0,g);box(.7,.65,.12,M.terracotta,0,1.1,-.28,g);for(let a of [-.23,.23])for(let b of [-.22,.22])box(.07,.75,.07,M.darkwood,a,.38,b,g);return g}
+function table(x,z){cyl(.98,.98,.12,M.lightwood,x,1.18,z,32);cyl(.1,.15,1.13,M.darkwood,x,.57,z);cyl(.48,.55,.07,M.darkwood,x,.08,z)}
+table(-3.45,1.7);chair(-3.45,2.95,Math.PI);chair(-4.7,1.55,-Math.PI/2);table(.5,2.05);chair(.5,3.35,Math.PI);chair(1.75,1.9,Math.PI/2);
+box(2.05,.38,.9,M.darkwood,4.55,.24,.3);box(2.08,.22,.94,M.green,4.55,.53,.3);box(2.08,.85,.19,M.green,4.55,.92,-.1);for(let x of [3.8,5.3])box(.1,.4,.7,M.darkwood,x,.2,.3);
+const rug=box(3.05,.025,2,M.cream,4.1,.06,2.2);for(let x of [2.7,2.85,5.4,5.55])box(.035,.028,1.85,M.terracotta,x,.08,2.2);box(1.4,.12,.85,M.lightwood,4.2,.85,2.2);for(let x of [3.65,4.75])for(let z of [1.94,2.45])box(.06,.75,.06,M.darkwood,x,.42,z);
+// Warm pendants.
+for(let x of [-3.4,.5]){cyl(.025,.025,1.6,M.black,x,4.5,-.55);cyl(.08,.52,.37,M.green,x,3.55,-.55);cyl(.46,.46,.035,M.cream,x,3.36,-.55);const l=new THREE.PointLight(0xffce87,7,7,2);l.position.set(x,3.15,-.55);room.add(l)}
+function plant(x,y,z,size=1){const g=new THREE.Group();g.position.set(x,y,z);g.scale.setScalar(size);room.add(g);cyl(.3,.22,.5,M.terracotta,0,.25,0,9,g);cyl(.31,.31,.055,M.darkwood,0,.51,0,9,g);for(let i=0;i<7;i++){const a=i*2.4;const h=.7+(i%3)*.24;const leaf=ball(.32,i%2?M.leaf:M.leaf2,Math.cos(a)*.23,h,Math.sin(a)*.23,g);leaf.scale.set(.65,1.5,.65);leaf.rotation.z=Math.cos(a)*.6;cyl(.018,.018,h-.4,M.leaf,Math.cos(a)*.1,h/2+.25,Math.sin(a)*.1,5,g)}return g}
+plant(-5.05,0,-3.75,1.3);plant(-5.43,1.52,1.9,.55);plant(5.1,0,-2.6,1.4);plant(.65,1.49,-2.65,.5);
+// Six interactive objects, with descendant raycasting.
+const interact=[],anchors=[];
+function target(index,x,y,z){const g=new THREE.Group();g.position.set(x,y,z);g.userData.puzzle=index;room.add(g);interact.push(g);anchors[index]=g;return g}
+const cup=target(0,-3.45,1.26,1.7);cyl(.28,.28,.035,M.cream,0,.02,0,24,cup);cyl(.18,.13,.29,M.cream,0,.18,0,16,cup);cyl(.151,.151,.012,M.coffee,0,.33,0,24,cup);const handle=new THREE.Mesh(new THREE.TorusGeometry(.105,.035,6,12),M.cream);handle.position.set(.18,.2,0);cup.add(handle);
+const book=target(1,4.2,.94,2.2);box(.75,.11,.56,M.terracotta,0,.05,0,book);box(.69,.065,.53,M.cream,0,.065,.015,book);box(.75,.025,.56,M.green,0,.113,0,book);box(.045,.01,.57,M.gold,-.17,.13,0,book);book.rotation.y=-.25;
+const clock=target(2,1.5,3.35,-4.25);const outer=cyl(.55,.55,.09,M.darkwood,0,0,0,32,clock);outer.rotation.x=Math.PI/2;const face=cyl(.49,.49,.1,M.cream,0,0,.025,32,clock);face.rotation.x=Math.PI/2;for(let i=0;i<12;i++){let a=i*Math.PI/6;const tick=box(.025,.075,.02,M.darkwood,Math.sin(a)*.42,Math.cos(a)*.42,.085,clock);tick.rotation.z=-a}box(.025,.32,.02,M.darkwood,0,.13,.11,clock);const hand=box(.27,.025,.02,M.darkwood,.12,0,.12,clock);hand.rotation.z=-.35;ball(.045,M.gold,0,0,.13,clock);
+const p=target(3,3.25,1.49,-2.55);const pg=plant(0,0,0,.75);room.remove(pg);p.add(pg);
+const record=target(4,2.2,.82,-.65);box(1.25,.7,.85,M.darkwood,0,-.35,0,record);box(1.34,.1,.92,M.lightwood,0,.02,0,record);cyl(.42,.42,.035,M.black,-.12,.09,0,32,record);cyl(.13,.13,.04,M.terracotta,-.12,.11,0,24,record);box(.04,.055,.5,M.gold,.41,.12,-.06,record);for(let i=0;i<7;i++)box(.07,.27,.025,M.black,-.38+i*.13,-.31,.44,record);
+const honey=target(5,-.85,1.5,-2.38);cyl(.19,.19,.39,mat(0xd29b3f,.3),0,.2,0,12,honey);cyl(.21,.21,.08,M.darkwood,0,.43,0,12,honey);box(.27,.19,.015,M.cream,0,.22,.19,honey);ball(.065,M.gold,0,.22,.21,honey);
+// GLTFLoader parses an embedded glTF brass seal. No separate model file is needed.
+const vertices=new Float32Array([0,.12,0,-.09,0,.09,.09,0,.09,0,.12,0,.09,0,.09,.09,0,-.09,0,.12,0,.09,0,-.09,-.09,0,-.09,0,.12,0,-.09,0,-.09,-.09,0,.09,0,-.06,0,.09,0,.09,-.09,0,.09,0,-.06,0,.09,0,-.09,.09,0,.09,0,-.06,0,-.09,0,-.09,.09,0,-.09,0,-.06,0,-.09,0,.09,-.09,0,-.09]);
+let binary='';for(const b of new Uint8Array(vertices.buffer))binary+=String.fromCharCode(b);
+const gltf={asset:{version:'2.0',generator:'The Last Sip embedded low-poly seal'},scene:0,scenes:[{nodes:[0]}],nodes:[{mesh:0}],meshes:[{primitives:[{attributes:{POSITION:0},material:0}]}],materials:[{pbrMetallicRoughness:{baseColorFactor:[.77,.64,.35,1],metallicFactor:.65,roughnessFactor:.4},doubleSided:true}],buffers:[{uri:'data:application/octet-stream;base64,'+btoa(binary),byteLength:vertices.byteLength}],bufferViews:[{buffer:0,byteOffset:0,byteLength:vertices.byteLength}],accessors:[{bufferView:0,componentType:5126,count:vertices.length/3,type:'VEC3',min:[-.09,-.06,-.09],max:[.09,.12,.09]}]};
+new GLTFLoader().parse(JSON.stringify(gltf),'',result=>{anchors.forEach((g,i)=>{const seal=result.scene.clone(true);seal.position.set(0,i===2?.73:.68,0);if(i===2)seal.position.z=.12;g.add(seal)})},e=>console.warn('Decorative glTF seal unavailable',e));
+// Labels also provide keyboard access to every puzzle.
+anchors.forEach((g,i)=>{const b=document.createElement('button');b.className='tag';b.innerHTML=`<span>${String(i+1).padStart(2,'0')}</span>${puzzles[i].label}`;b.setAttribute('aria-label',`谜题 ${i+1}: ${puzzles[i].label}`);b.onclick=()=>focusPuzzle(i);$('#labels').append(b);g.userData.label=b});
+const doorLabel=document.createElement('button');doorLabel.className='tag';doorLabel.innerHTML='<span>↗</span> Exit door';doorLabel.onclick=openLock;$('#labels').append(doorLabel);
+let tween=null,current=-1,lastFocus=null,toastTimer,modalTimer,escapedRotation=state.escaped?-Math.PI*.48:0;doorPivot.rotation.y=escapedRotation;
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function moveCamera(pos,target,duration=700){tween={from:camera.position.clone(),to:pos.clone(),start:performance.now(),duration:reduced?1:duration,targetFrom:controls.target.clone(),targetTo:target.clone()}}
+function updateUI(){$('#count').textContent=`${state.solved.filter(Boolean).length} / 6`;$('#digits').innerHTML=puzzles.map((p,i)=>`<div class="digit ${state.solved[i]?'found':''}" aria-label="密码第 ${i+1} 位${state.solved[i]?' '+p.digit:' 未解锁'}"><small>${i+1}</small>${state.solved[i]?p.digit:'·'}</div>`).join('');anchors.forEach((g,i)=>{g.userData.label.classList.toggle('done',state.solved[i]);g.userData.label.querySelector('span').textContent=state.solved[i]?'✓':String(i+1).padStart(2,'0')});save()}
+function toast(s){$('#toast').textContent=s;$('#toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('show'),3200)}
+function openModal(id){clearTimeout(modalTimer);lastFocus=document.activeElement;$$('.overlay').forEach(e=>e.classList.remove('open'));$(id).classList.add('open');controls.enabled=false;$('#labels').style.visibility='hidden';setTimeout(()=>$(id).querySelector('input:not(:disabled),button')?.focus(),60)}
+function closeModal(){clearTimeout(modalTimer);$$('.overlay').forEach(e=>e.classList.remove('open'));controls.enabled=true;$('#labels').style.visibility='';home();if(lastFocus instanceof HTMLElement)lastFocus.focus()}
+function focusPuzzle(i){if($$('.overlay.open').length)return;current=i;const world=new THREE.Vector3();anchors[i].getWorldPosition(world);const direction=camera.position.clone().sub(controls.target).normalize();direction.y=Math.max(.4,direction.y);direction.normalize();moveCamera(world.clone().addScaledVector(direction,5.5),world,650);controls.enabled=false;$('#labels').style.visibility='hidden';clearTimeout(modalTimer);modalTimer=setTimeout(()=>showPuzzle(i),reduced?20:680)}
+function showPuzzle(i){const p=puzzles[i];$('#puzzleNo').textContent=`SECRET ${String(i+1).padStart(2,'0')} / 06 · ${p.label}`;$('#puzzleTitle').textContent=p.title;$('#question').textContent=p.q;$('#puzzleArt').innerHTML=arts[p.kind]+`<div class="art-label">A SMALL OBJECT. A HIDDEN STORY.</div>`;$('#answer').value='';$('#answer').disabled=state.solved[i];$('#answerButton').disabled=state.solved[i];$('#feedback').textContent=state.solved[i]?`✓ Solved! Your digit is ${p.digit} — position ${i+1}.`:'';renderHints();openModal('#puzzle');if(!state.solved[i])setTimeout(()=>$('#answer').focus(),80)}
+function renderHints(){const p=puzzles[current],n=Math.min(state.tries[current],3);$('#hints').replaceChildren(...p.hints.slice(0,n).map((h,i)=>{const row=document.createElement('div');row.textContent=`Hint ${i+1}. ${h}`;return row}));$('#attempts').textContent=state.solved[current]?'Digit saved in your exit code.':n?`${state.tries[current]} incorrect attempt${state.tries[current]===1?'':'s'} · ${n}/3 hints revealed · Keep trying.`:'No rush. A hint appears after each incorrect answer.'}
+const normalize=s=>s.toLowerCase().normalize('NFKC').replace(/[.,!?“”"']/g,'').trim().replace(/\s+/g,' ');
+function checkAnswer(e){e.preventDefault();if(current<0||state.solved[current])return;const value=normalize($('#answer').value);if(!value){$('#feedback').textContent='Please type an answer first.';return}if(puzzles[current].answers.some(a=>normalize(a)===value)){state.solved[current]=true;$('#answer').disabled=true;$('#answerButton').disabled=true;$('#feedback').textContent=`✓ Exactly right! Your digit is ${puzzles[current].digit} — position ${current+1}.`;updateUI();renderHints();if(state.solved.every(Boolean))toast('六个秘密已集齐。按编号排列密码，前往门锁！')}else{state.tries[current]++;$('#feedback').textContent='Not quite. Here’s a clue to help you along.';renderHints();save();$('#answer').select()}};
+function openLock(){openModal('#lock');$('#code').value='';$('#lockFeedback').textContent=state.escaped?'The door is already open. You are free to explore.':'';$('#lockProgress').textContent=`${state.solved.filter(Boolean).length} / 6 digits collected`;setTimeout(()=>$('#code').focus(),80)}
+function checkLock(e){e.preventDefault();if(!state.solved.every(Boolean)){$('#lockFeedback').textContent='还差一些线索。请先解开全部六个谜题。';return}if(!/^[0-9]{6}$/.test($('#code').value)){$('#lockFeedback').textContent='请输入完整的六位数字密码。';$('#code').focus();return}if($('#code').value!==puzzles.map(p=>p.digit).join('')){$('#lockFeedback').textContent='密码不正确，请按 01 → 06 的顺序查看已收集数字。';$('#code').select();return}state.escaped=true;save();$$('.overlay').forEach(e=>e.classList.remove('open'));$('#labels').style.visibility='';home();controls.enabled=false;toast('咔哒。门锁已打开！');modalTimer=setTimeout(()=>{const minutes=Math.max(1,Math.round((Date.now()-state.started)/60000));$('#endStats').textContent=`6 secrets discovered · ${minutes} min · ${state.tries.reduce((a,b)=>a+b,0)} incorrect answers`;openModal('#win')},1100)};
+// Explicit button events also work inside previews that restrict native form submission.
+$('#answerButton').addEventListener('click',checkAnswer);
+$('#unlockButton').addEventListener('click',checkLock);
+$('#answerForm').addEventListener('submit',checkAnswer);
+$('#lockForm').addEventListener('submit',checkLock);
+for(const [selector,handler] of [['#answer',checkAnswer],['#code',checkLock]]){
+ $(selector).addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();handler(e)}});
+}
+$('#code').oninput=e=>e.target.value=e.target.value.replace(/\D/g,'').slice(0,6);
+$$('[data-close]').forEach(b=>b.onclick=closeModal);$$('.overlay').forEach(el=>el.addEventListener('pointerdown',e=>{if(e.target===el&&el.id!=='win')closeModal()}));
+document.addEventListener('keydown',e=>{const modal=$('.overlay.open');if(e.key==='Escape'){if(modal||modalTimer)closeModal();return}if(e.key==='Tab'&&modal){const items=[...modal.querySelectorAll('button:not(:disabled):not([tabindex="-1"]),input:not(:disabled),textarea:not(:disabled)')];const first=items[0],last=items.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
+$('#help').onclick=()=>openModal('#instructions');$('#startExplore').onclick=closeModal;$('#openLock').onclick=openLock;$('#resetView').onclick=home;$('#zoomIn').onclick=()=>zoom(.8);$('#zoomOut').onclick=()=>zoom(1.25);
+function zoom(scale){const delta=camera.position.clone().sub(controls.target);delta.setLength(THREE.MathUtils.clamp(delta.length()*scale,controls.minDistance,controls.maxDistance));moveCamera(controls.target.clone().add(delta),controls.target,300)}
+function restart(){clearTimeout(modalTimer);state.solved.fill(false);state.tries.fill(0);state.escaped=false;state.started=Date.now();updateUI();closeModal();toast('新的谜题旅程已开始。')}
+$('#playAgain').onclick=restart;$('#clearProgress').onclick=restart;$('#explore').onclick=closeModal;
+// Teacher drafts are separate from the active lesson until explicitly saved.
+let lessonDraft=[],editingIndex=0;
+function readTeacherFields(){if(!lessonDraft.length)return;const p=lessonDraft[editingIndex];p.title=$('#editTitle').value.trim();p.q=$('#editQuestion').value.trim();p.digit=$('#editDigit').value.trim();p.answers=$('#editAnswers').value.split(/\r?\n/).map(a=>a.trim()).filter(Boolean);p.hints=[0,1,2].map(i=>$('#editHint'+i).value.trim());$('#teacherCode').textContent=lessonDraft.map(p=>/^[0-9]$/.test(p.digit)?p.digit:'?').join('')}
+function showTeacherFields(index){editingIndex=index;const p=lessonDraft[index];$('#editTitle').value=p.title;$('#editQuestion').value=p.q;$('#editDigit').value=p.digit;$('#editAnswers').value=p.answers.join('\n');p.hints.forEach((h,i)=>$('#editHint'+i).value=h);$$('#teacherTabs button').forEach((b,i)=>{b.setAttribute('aria-selected',String(i===index));b.tabIndex=i===index?0:-1});$('#teacherFields').setAttribute('aria-labelledby','teacherTab'+index);$('#teacherCode').textContent=lessonDraft.map(p=>/^[0-9]$/.test(p.digit)?p.digit:'?').join('')}
+function openTeacher(){lessonDraft=copyLesson(puzzles);$('#teacherTabs').replaceChildren(...puzzles.map((p,i)=>{const b=document.createElement('button');b.type='button';b.id='teacherTab'+i;b.setAttribute('role','tab');b.setAttribute('aria-controls','teacherFields');b.textContent=String(i+1).padStart(2,'0')+' · '+p.label;b.onclick=()=>{readTeacherFields();showTeacherFields(i)};b.onkeydown=e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?5:(i+(e.key==='ArrowRight'?1:5))%6;readTeacherFields();showTeacherFields(next);$('#teacherTab'+next).focus()};return b}));showTeacherFields(0);$('#teacherStatus').textContent='修改六道题后，可直接下载新版 HTML；不必先保存。';openModal('#teacher')}
+function validateDraft(){readTeacherFields();for(let i=0;i<6;i++){if(!validLesson(lessonDraft.map((p,j)=>j===i?p:defaultPuzzles[j]))){showTeacherFields(i);$('#teacherStatus').textContent=`第 ${i+1} 题尚未填写完整：请填写标题、题目、至少一个答案、三条提示和一位数字。每个答案最多 500 字，最多 100 个答案。`;return false}}return true}
+$('#teacherButton').onclick=openTeacher;
+$$('#teacherFields input, #teacherFields textarea').forEach(el=>el.addEventListener('input',()=>{readTeacherFields();$('#teacherStatus').textContent='草稿已修改，尚未保存。'}));
+$('#saveLesson').onclick=()=>{if(!validateDraft())return;const next=copyLesson(lessonDraft);let persisted=true;try{localStorage.setItem(lessonStorageKey,JSON.stringify(next))}catch{persisted=false}puzzles.splice(0,6,...next);storageKey='last-sip-progress-'+lessonHash(puzzles);restart();toast(persisted?'题库已保存，进度已重置。可以开始试玩！':'题库已应用，但浏览器无法保存。请下载 HTML 保留修改。')};
+function makeLessonHTML(data){if(!validLesson(data))throw new Error('Invalid lesson');const output=sourceDocument.cloneNode(true);output.querySelector('#lessonData').textContent=JSON.stringify(copyLesson(data)).replace(/</g,'\\u003c').replace(/>/g,'\\u003e').replace(/&/g,'\\u0026');return '<!DOCTYPE html>\n'+output.outerHTML}
+$('#downloadLesson').onclick=()=>{if(!validateDraft())return;try{const blob=new Blob([makeLessonHTML(lessonDraft)],{type:'text/html;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='index.html';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);$('#teacherStatus').textContent='已请求下载 index.html（含当前六道题）。请在浏览器下载列表中查看，再上传 GitHub 覆盖旧文件。'}catch(e){$('#teacherStatus').textContent='下载失败，请在普通浏览器中打开游戏后重试。'}};
+// Raycast model clicks; drag gestures never trigger a puzzle.
+const raycaster=new THREE.Raycaster(),pointer=new THREE.Vector2();let down=null;
+canvas.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY,time:performance.now()}});
+canvas.addEventListener('pointerup',e=>{if(!down||Math.hypot(e.clientX-down.x,e.clientY-down.y)>6||performance.now()-down.time>600||!controls.enabled)return;pointer.set(e.clientX/innerWidth*2-1,-e.clientY/innerHeight*2+1);raycaster.setFromCamera(pointer,camera);const hits=raycaster.intersectObjects([...interact,doorPivot],true);if(hits.length){let o=hits[0].object;while(o&&o!==room){if(Number.isInteger(o.userData.puzzle)){focusPuzzle(o.userData.puzzle);break}if(o===doorPivot){openLock();break}o=o.parent}}down=null});
+canvas.addEventListener('pointermove',e=>{if(!controls.enabled)return;pointer.set(e.clientX/innerWidth*2-1,-e.clientY/innerHeight*2+1);raycaster.setFromCamera(pointer,camera);canvas.style.cursor=raycaster.intersectObjects([...interact,doorPivot],true).length?'pointer':'grab'});
+addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);renderer.setPixelRatio(Math.min(devicePixelRatio,2))});
+const wp=new THREE.Vector3();function positionLabel(label,object,offset=.55){object.getWorldPosition(wp);wp.y+=offset;wp.project(camera);const x=(wp.x*.5+.5)*innerWidth,y=(-wp.y*.5+.5)*innerHeight;label.style.left=x+'px';label.style.top=y+'px';label.classList.toggle('hidden',wp.z>1||wp.z< -1||x<10||x>innerWidth-10||y<80||y>innerHeight-100)}
+function animate(now){requestAnimationFrame(animate);if(tween){const t=Math.min(1,(now-tween.start)/tween.duration),k=t*t*(3-2*t);camera.position.lerpVectors(tween.from,tween.to,k);controls.target.lerpVectors(tween.targetFrom,tween.targetTo,k);if(t===1)tween=null}controls.update();doorPivot.rotation.y=THREE.MathUtils.lerp(doorPivot.rotation.y,state.escaped?-Math.PI*.48:0,.045);scene.updateMatrixWorld();anchors.forEach(g=>positionLabel(g.userData.label,g,g.userData.puzzle===2?.8:.62));positionLabel(doorLabel,keypad,.4);renderer.render(scene,camera)}
+camera.position.copy(homePosition);controls.target.copy(homeTarget);home();updateUI();requestAnimationFrame(animate);$('#loading').style.opacity='0';setTimeout(()=>$('#loading').remove(),650);
+</script>
+<script>
+// A failed CDN import must leave a useful message rather than a silent loading screen.
+window.addEventListener('error',function(e){if(document.getElementById('loading')&&(e.message?.includes('WebGL')||e.target?.tagName==='SCRIPT')){document.getElementById('loadText').textContent='加载失败：请检查网络连接，或使用支持 WebGL 的现代浏览器。'}},true);
+setTimeout(function(){var p=document.getElementById('loadText');if(p)p.textContent='加载时间较长，请检查网络能否访问 cdn.jsdelivr.net，然后刷新页面。'},15000);
+</script>
+
+<script>globalThis.__codexVisualizationInitialGlobals={"statePersistence":"none","stateModelContext":"none","visualizationStyleVariables":{"--accent":"rgb(232, 243, 254)","--accent-foreground":"rgb(44, 103, 197)","--background":"rgb(252, 252, 252)","--border":"rgba(0, 0, 0, 0.1)","--border-strong":"rgba(0, 0, 0, 0.15)","--card":"color-mix(in oklab, rgb(13, 13, 13) 5%, transparent)","--card-foreground":"rgb(13, 13, 13)","--corner-shape":"round","--control-spacing":"12px","--cursor-interaction":"pointer","--destructive":"rgb(226, 85, 7)","--font-mono":"ui-monospace, SFMono-Regular, \"SF Mono\", menlo, consolas, \"Liberation Mono\", monospace","--font-sans":"-apple-system-body, ui-sans-serif, -apple-system, system-ui, \"Segoe UI\", Helvetica, \"Apple Color Emoji\", Arial, sans-serif, \"Segoe UI Emoji\", \"Segoe UI Symbol\"","--font-size-base":"16px","--font-weight-normal":"400","--foreground":"rgb(13, 13, 13)","--input":"rgba(0, 0, 0, 0.15)","--muted":"color-mix(in srgb, rgb(13, 13, 13) 10%, transparent)","--muted-foreground":"rgb(143, 143, 143)","--popover":"rgb(255, 255, 255)","--popover-foreground":"rgb(13, 13, 13)","--primary":"rgb(44, 103, 197)","--primary-foreground":"rgb(255, 255, 255)","--radius":"8px","--radius-2xl":"16px","--radius-lg":"8px","--radius-md":"6px","--radius-sm":"4px","--ring":"rgb(58, 131, 247)","--secondary":"rgb(243, 243, 243)","--secondary-foreground":"rgb(13, 13, 13)","--blue":"rgb(58, 131, 247)","--orange":"rgb(226, 85, 7)","--green":"rgb(0, 162, 64)","--red":"rgb(224, 46, 42)","--purple":"rgb(146, 79, 247)","--yellow":"rgb(255, 195, 0)","--visualize-paint-gutter":"0px","--viz-series-1":"rgb(44, 103, 197)","--viz-series-2":"#f3c944","--viz-series-3":"#ea77b0","--viz-series-4":"#3db9b0","--viz-series-5":"#5ec978","--viz-series-6":"#f2893c"},"visualizationTheme":"light"};</script>
+<style id="codex-visualization-host-theme">:root {}</style>
+<script>
+(() => {
+  // Host colors are defaults; later authored styles can give the same names
+  // their own meaning (for example, --muted as a chart's label color).
+  const hostStyles = document.getElementById("codex-visualization-host-theme");
+  const hostStyle = hostStyles.sheet.cssRules[0].style;
+  // Typography, geometry and interaction cursors still follow the host.
+  const styleForProperty = (property) =>
+    /^--(?:font-|radius|corner-shape$|control-spacing$|cursor-interaction$|icon-size$|visualize-paint-gutter$)/.test(property)
+      ? document.documentElement.style
+      : hostStyle;
+  const initialGlobals =
+    globalThis.__codexVisualizationInitialGlobals ?? globalThis.openai;
+  delete globalThis.__codexVisualizationInitialGlobals;
+  if (initialGlobals?.statePersistence != null) {
+    globalThis.openai ??= {};
+    globalThis.openai.statePersistence = initialGlobals.statePersistence;
+    globalThis.openai.stateModelContext = initialGlobals.stateModelContext ?? "none";
+  }
+  if (!false) {
+    return;
+  }
+  let appliedProperties = [];
+  const applyHostStyleVariables = (styleVariables) => {
+    if (styleVariables == null || typeof styleVariables !== "object") {
+      return;
+    }
+    for (const property of appliedProperties) {
+      styleForProperty(property).removeProperty(property);
+    }
+    appliedProperties = [];
+    for (const [property, value] of Object.entries(styleVariables)) {
+      if (property.startsWith("--") && typeof value === "string") {
+        styleForProperty(property).setProperty(property, value);
+        appliedProperties.push(property);
+      }
+    }
+  };
+
+  const syncHostStyles = (globals) => {
+    applyHostStyleVariables(globals?.visualizationStyleVariables);
+    const sandboxDocument = globalThis.frameElement?.ownerDocument;
+    if (sandboxDocument != null && globals?.visualizationTheme != null) {
+      let colorSchemeMeta = sandboxDocument.querySelector(
+        'meta[name="color-scheme"]',
+      );
+      if (colorSchemeMeta == null) {
+        colorSchemeMeta = sandboxDocument.createElement("meta");
+        colorSchemeMeta.name = "color-scheme";
+        sandboxDocument.head.appendChild(colorSchemeMeta);
+      }
+      colorSchemeMeta.content = globals.visualizationTheme;
+      sandboxDocument.documentElement.style.colorScheme =
+        globals.visualizationTheme;
+      // Paint the host surface behind transparent saved visualization documents.
+      sandboxDocument.documentElement.style.backgroundColor =
+        hostStyle.getPropertyValue("--background");
+    }
+  };
+
+  syncHostStyles(initialGlobals);
+  globalThis.addEventListener("openai:set_globals", (event) => {
+    syncHostStyles(event.detail?.globals);
+  });
+})();
+</script>
+<script>
+(() => {
+  const reportEnvironmentError = (value) => {
+    const error = value instanceof Error ? value : new Error(String(value));
+    void globalThis.openai
+      .callTool(
+        "__codex_inline_visualization_error__",
+        {
+          message: error.message,
+          name: error.name,
+          stack: error.stack,
+        },
+      )
+      .catch(() => {});
+  };
+
+  globalThis.addEventListener("error", (event) => {
+    reportEnvironmentError(event.error ?? event.message);
+  });
+  globalThis.addEventListener("unhandledrejection", (event) => {
+    reportEnvironmentError(event.reason);
+  });
+})();
+</script>
+<script id="codex-visualization-variants">
+(() => {
+  let previousSnapshot = "[]";
+  let roots = [];
+  const report = () => {
+    roots = Array.from(
+      document.querySelectorAll(".viz-carousel[data-active-variant]"),
+    ).slice(0, 32);
+    const selectedVariants = roots.flatMap((root, carousel) => {
+      const variant = root.dataset.activeVariant;
+      const label = root.getAttribute("aria-label")?.slice(0, 256);
+      return variant ? [{
+        carousel,
+        ...(label == null ? {} : { label }),
+        variant: variant.slice(0, 256),
+      }] : [];
+    });
+    const snapshot = JSON.stringify(selectedVariants);
+    if (snapshot !== previousSnapshot) {
+      previousSnapshot = snapshot;
+      void globalThis.openai.callTool("__codex_visualization_annotations__", {
+        type: "variants",
+        selectedVariants,
+      }).catch(() => {});
+    }
+  };
+  const observer = new MutationObserver((records) => {
+    if (records.some((record) => record.type === "attributes") || roots.some((root) => !root.isConnected)) {
+      report();
+    }
+  });
+  observer.observe(document, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ["data-active-variant"],
+  });
+  report();
+  globalThis.addEventListener("pagehide", () => observer.disconnect(), { once: true });
+})();
+</script>
+<script>
+(() => {
+  let isHovering = false;
+  let isTouch = false;
+  const reportHover = (nextIsHovering, nextIsTouch = false) => {
+    if (nextIsHovering === isHovering && nextIsTouch === isTouch) {
+      return;
+    }
+    isHovering = nextIsHovering;
+    isTouch = nextIsTouch;
+    void globalThis.openai
+      .callTool(
+        "__codex_inline_visualization_hover__",
+        isTouch ? { isHovering, pointerType: "touch" } : { isHovering },
+      )
+      .catch(() => {});
+  };
+
+  globalThis.addEventListener(
+    "pointerover",
+    (event) =>
+      reportHover(event.pointerType !== "touch", event.pointerType === "touch"),
+    { capture: true },
+  );
+  globalThis.addEventListener(
+    "pointerout",
+    (event) => {
+      if (event.pointerType !== "touch" && event.relatedTarget == null) {
+        reportHover(false);
+      }
+    },
+    { capture: true },
+  );
+})();
+</script>
+<script>
+(() => {
+  const bubbledClicks = new WeakSet();
+  const interactiveSelector = [
+    "button", "input", "select", "textarea", "label", "summary", "a[href]",
+    "audio[controls]", "video[controls]", "[onclick]", "[data-visualization-interactive]",
+    '[contenteditable]:not([contenteditable="false"])',
+    ...[
+      "button", "checkbox", "combobox", "gridcell", "link", "listbox",
+      "menuitem", "menuitemcheckbox", "menuitemradio", "option", "radio",
+      "scrollbar", "searchbox", "slider", "spinbutton", "switch", "tab",
+      "textbox", "treeitem",
+    ].map((role) => '[role~="' + role + '"]'),
+  ].join(",");
+
+  globalThis.addEventListener("click", (event) => bubbledClicks.add(event));
+  globalThis.addEventListener("click", (event) => {
+    // Capture the path before a control can remove itself. Custom delegated
+    // controls can opt in with data-visualization-interactive.
+    const elements = event.composedPath().filter((target) => target instanceof Element);
+    const isInteractiveTarget = elements.some((element) =>
+      element.matches(interactiveSelector) ||
+      (element.hasAttribute("tabindex") && element.tabIndex >= 0)) ||
+      (elements[0] != null && getComputedStyle(elements[0]).cursor === "pointer");
+    // Use a task, not a microtask: native dispatch can run microtasks between
+    // listeners. Propagation flags are reset when dispatch finishes:
+    // https://dom.spec.whatwg.org/#concept-event-dispatch
+    globalThis.setTimeout(() => {
+      void globalThis.openai.callTool("__codex_inline_visualization_click__", {
+        isInteractive: isInteractiveTarget || event.defaultPrevented ||
+          (event.bubbles && !bubbledClicks.has(event)),
+      }).catch(() => {});
+    }, 0);
+  }, { capture: true });
+})();
+</script>
+<script>
+(() => {
+  globalThis.addEventListener("keydown", (event) => {
+    if (event.isComposing || event.altKey || event.ctrlKey || event.metaKey ||
+      event.shiftKey || !["ArrowLeft", "ArrowRight", "Escape"].includes(event.key)) {
+      return;
+    }
+    const target = event.composedPath().find((element) => element instanceof HTMLElement);
+    const editable = target?.closest("[contenteditable]");
+    const editing = target && (target.isContentEditable ||
+      (editable && editable.getAttribute("contenteditable") !== "false") ||
+      target.closest('input, textarea, select, [role="slider"], [role="spinbutton"], [role="combobox"], [role="listbox"], [role="grid"], [role="tree"], [role="tablist"], [role="menu"]'));
+    if (event.key !== "Escape" && editing) { return; }
+    // Let the widget handle the key before forwarding it across the sandbox.
+    globalThis.setTimeout(() => {
+      if (!event.defaultPrevented && globalThis.openai?.displayMode === "fullscreen") {
+        void globalThis.openai.callTool("__codex_inline_visualization_preview_key__", {
+          key: event.key,
+        }).catch(() => {});
+      }
+    }, 0);
+  });
+})();
+</script>
+
+
+
+
+<script>
+(() => {
+  const contentRange = document.createRange();
+  let previousMeasurement = null;
+  let heightReportTimer = null;
+  const reportHeight = () => {
+    const bodyChildren = Array.from(document.body.children).filter(
+      (element) =>
+        element.tagName !== "SCRIPT" &&
+        element.tagName !== "STYLE" &&
+        element.getAttribute("role") !== "tooltip",
+    );
+    const bodyStyle = globalThis.getComputedStyle(document.body);
+    const contentWidth = Math.max(
+      0,
+      Math.round(
+        globalThis.innerWidth -
+          parseFloat(bodyStyle.paddingLeft) -
+          parseFloat(bodyStyle.paddingRight),
+      ),
+    );
+    let contentHeight;
+    if (bodyChildren.length === 0) {
+      contentRange.selectNodeContents(document.body);
+      contentHeight = contentRange.getBoundingClientRect().height;
+    } else if (bodyChildren.length === 1) {
+      const [bodyChild] = bodyChildren;
+      const childRect = bodyChild.getBoundingClientRect();
+      // Child margins can collapse above the root without adding to its height.
+      // The host adds body padding separately.
+      contentHeight =
+        Math.max(bodyChild.scrollHeight, childRect.height) +
+        Math.max(
+          0,
+          childRect.top -
+            document.body.getBoundingClientRect().top -
+            parseFloat(bodyStyle.paddingTop),
+        );
+    } else {
+      const bodyTop = document.body.getBoundingClientRect().top;
+      contentHeight = Math.max(
+        ...bodyChildren.map(
+          (bodyChild) => bodyChild.getBoundingClientRect().bottom - bodyTop,
+        ),
+      );
+    }
+    const viewportHeight = globalThis.innerHeight;
+    const previous = previousMeasurement;
+    previousMeasurement = { contentHeight, contentWidth, viewportHeight };
+    if (
+      previous != null &&
+      contentWidth === previous.contentWidth &&
+      contentHeight - previous.contentHeight ===
+        viewportHeight - previous.viewportHeight
+    ) {
+      return;
+    }
+
+    void globalThis.openai
+      .callTool(
+        "__codex_inline_visualization_height__",
+        { height: contentHeight, width: contentWidth },
+      )
+      .catch(() => {});
+  };
+  const scheduleHeightReport = () => {
+    if (heightReportTimer != null) {
+      return;
+    }
+    // Offscreen frames can suspend animation callbacks while their content loads.
+    heightReportTimer = globalThis.setTimeout(() => {
+      heightReportTimer = null;
+      reportHeight();
+    }, 0);
+  };
+
+  const resizeObserver = new ResizeObserver(scheduleHeightReport);
+  const observeBodyChildren = () => {
+    for (const element of document.body.children) {
+      resizeObserver.observe(element);
+    }
+  };
+  resizeObserver.observe(document.body);
+  observeBodyChildren();
+  new MutationObserver(() => {
+    observeBodyChildren();
+    scheduleHeightReport();
+  }).observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ["style", "class", "height", "width"],
+  });
+  globalThis.addEventListener("resize", scheduleHeightReport);
+  reportHeight();
+})();
+</script>
+<style id="codex-visualization-document-scrollbar">html,body{scrollbar-width:none!important}html::-webkit-scrollbar,body::-webkit-scrollbar{display:none!important}</style>
+
+
+
+</body></html>
